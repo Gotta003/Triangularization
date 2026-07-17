@@ -85,4 +85,4 @@ The GUI auto-detects the master's serial port; if the configured `SERIAL_PORT` i
 - No persistence/logging of telemetry history yet (each session starts fresh).
 
 # Contact
-Matteo Gottardelli - matteogottardelli@gmail.com (mailto:matteogottardelli@gmail.com)
+Matteo Gottardelli - matteogottardelli@gmail.com

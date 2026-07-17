@@ -1,0 +1,6 @@
+../STM32_WPAN/App/p2p_client_app.c:152:6:P2PC_APP_Init	2
+../STM32_WPAN/App/p2p_client_app.c:178:6:P2PC_APP_Notification	5
+../STM32_WPAN/App/p2p_client_app.c:234:30:Event_Handler	37
+../STM32_WPAN/App/p2p_client_app.c:521:6:Gatt_Notification	1
+../STM32_WPAN/App/p2p_client_app.c:550:9:P2P_Client_APP_Get_State	1
+../STM32_WPAN/App/p2p_client_app.c:556:6:Force_Infinite_Scan	1

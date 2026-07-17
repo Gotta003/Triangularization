@@ -1,0 +1,10 @@
+/Users/matteogottardelligmail.com/STM32Cube/Repository/STM32Cube_FW_WB_V1.23.0/Projects/P-NUCLEO-WB55.Nucleo/Applications/BLE/BLE_p2pClient/STM32_WPAN/App/p2p_client_app.c:111:6:P2PC_APP_Init	16	static
+/Users/matteogottardelligmail.com/STM32Cube/Repository/STM32Cube_FW_WB_V1.23.0/Projects/P-NUCLEO-WB55.Nucleo/Applications/BLE/BLE_p2pClient/STM32_WPAN/App/p2p_client_app.c:141:6:P2PC_APP_Notification	24	static
+/Users/matteogottardelligmail.com/STM32Cube/Repository/STM32Cube_FW_WB_V1.23.0/Projects/P-NUCLEO-WB55.Nucleo/Applications/BLE/BLE_p2pClient/STM32_WPAN/App/p2p_client_app.c:173:6:P2PC_APP_SW1_Button_Action	8	static
+/Users/matteogottardelligmail.com/STM32Cube/Repository/STM32Cube_FW_WB_V1.23.0/Projects/P-NUCLEO-WB55.Nucleo/Applications/BLE/BLE_p2pClient/STM32_WPAN/App/p2p_client_app.c:181:30:Event_Handler	88	static
+/Users/matteogottardelligmail.com/STM32Cube/Repository/STM32Cube_FW_WB_V1.23.0/Projects/P-NUCLEO-WB55.Nucleo/Applications/BLE/BLE_p2pClient/STM32_WPAN/App/p2p_client_app.c:401:6:Gatt_Notification	16	static
+/Users/matteogottardelligmail.com/STM32Cube/Repository/STM32Cube_FW_WB_V1.23.0/Projects/P-NUCLEO-WB55.Nucleo/Applications/BLE/BLE_p2pClient/STM32_WPAN/App/p2p_client_app.c:432:9:P2P_Client_APP_Get_State	4	static
+/Users/matteogottardelligmail.com/STM32Cube/Repository/STM32Cube_FW_WB_V1.23.0/Projects/P-NUCLEO-WB55.Nucleo/Applications/BLE/BLE_p2pClient/STM32_WPAN/App/p2p_client_app.c:437:19:Write_Char	24	static
+/Users/matteogottardelligmail.com/STM32Cube/Repository/STM32Cube_FW_WB_V1.23.0/Projects/P-NUCLEO-WB55.Nucleo/Applications/BLE/BLE_p2pClient/STM32_WPAN/App/p2p_client_app.c:460:6:Button_Trigger_Received	8	static
+/Users/matteogottardelligmail.com/STM32Cube/Repository/STM32Cube_FW_WB_V1.23.0/Projects/P-NUCLEO-WB55.Nucleo/Applications/BLE/BLE_p2pClient/STM32_WPAN/App/p2p_client_app.c:474:6:Update_Service	16	static
+/Users/matteogottardelligmail.com/STM32Cube/Repository/STM32Cube_FW_WB_V1.23.0/Projects/P-NUCLEO-WB55.Nucleo/Applications/BLE/BLE_p2pClient/STM32_WPAN/App/p2p_client_app.c:525:6:Force_Infinite_Scan	8	static

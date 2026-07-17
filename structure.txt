@@ -1,0 +1,856 @@
+.
+├── BLE_p2pClient
+│   ├── BLE_p2pClient.ioc
+│   ├── Binary
+│   │   └── BLE_p2pClient_reference.hex
+│   ├── Core
+│   │   ├── Inc
+│   │   │   ├── app_common.h
+│   │   │   ├── app_conf.h
+│   │   │   ├── app_debug.h
+│   │   │   ├── app_entry.h
+│   │   │   ├── hw_conf.h
+│   │   │   ├── hw_if.h
+│   │   │   ├── main.h
+│   │   │   ├── stm32_lpm_if.h
+│   │   │   ├── stm32wbxx_hal_conf.h
+│   │   │   ├── stm32wbxx_it.h
+│   │   │   ├── stm32wbxx_nucleo_conf.h
+│   │   │   └── utilities_conf.h
+│   │   └── Src
+│   │       ├── app_debug.c
+│   │       ├── app_entry.c
+│   │       ├── hw_timerserver.c
+│   │       ├── hw_uart.c
+│   │       ├── main.c
+│   │       ├── stm32_lpm_if.c
+│   │       ├── stm32wbxx_hal_msp.c
+│   │       ├── stm32wbxx_it.c
+│   │       └── system_stm32wbxx.c
+│   ├── EWARM
+│   │   ├── BLE_p2pClient.ewd
+│   │   ├── BLE_p2pClient.ewp
+│   │   ├── Project.eww
+│   │   ├── startup_stm32wb55xx_cm4.s
+│   │   └── stm32wb55xx_flash_cm4.icf
+│   ├── MDK-ARM
+│   │   ├── BLE_p2pClient.uvoptx
+│   │   ├── BLE_p2pClient.uvprojx
+│   │   ├── startup_stm32wb55xx_cm4.s
+│   │   └── stm32wb55xx_flash_cm4.sct
+│   ├── STM32CubeIDE
+│   │   ├── Application
+│   │   │   └── User
+│   │   │       ├── Core
+│   │   │       │   ├── syscalls.c
+│   │   │       │   └── sysmem.c
+│   │   │       ├── STM32_WPAN
+│   │   │       │   ├── App
+│   │   │       │   └── Target
+│   │   │       └── Startup
+│   │   │           └── startup_stm32wb55rgvx.s
+│   │   ├── BLE_p2pClient Debug.launch
+│   │   ├── Debug
+│   │   │   ├── Application
+│   │   │   │   └── User
+│   │   │   │       ├── Core
+│   │   │   │       │   ├── app_debug.cyclo
+│   │   │   │       │   ├── app_debug.d
+│   │   │   │       │   ├── app_debug.o
+│   │   │   │       │   ├── app_debug.su
+│   │   │   │       │   ├── app_entry.cyclo
+│   │   │   │       │   ├── app_entry.d
+│   │   │   │       │   ├── app_entry.o
+│   │   │   │       │   ├── app_entry.su
+│   │   │   │       │   ├── hw_timerserver.cyclo
+│   │   │   │       │   ├── hw_timerserver.d
+│   │   │   │       │   ├── hw_timerserver.o
+│   │   │   │       │   ├── hw_timerserver.su
+│   │   │   │       │   ├── hw_uart.cyclo
+│   │   │   │       │   ├── hw_uart.d
+│   │   │   │       │   ├── hw_uart.o
+│   │   │   │       │   ├── hw_uart.su
+│   │   │   │       │   ├── main.cyclo
+│   │   │   │       │   ├── main.d
+│   │   │   │       │   ├── main.o
+│   │   │   │       │   ├── main.su
+│   │   │   │       │   ├── stm32_lpm_if.cyclo
+│   │   │   │       │   ├── stm32_lpm_if.d
+│   │   │   │       │   ├── stm32_lpm_if.o
+│   │   │   │       │   ├── stm32_lpm_if.su
+│   │   │   │       │   ├── stm32wbxx_hal_msp.cyclo
+│   │   │   │       │   ├── stm32wbxx_hal_msp.d
+│   │   │   │       │   ├── stm32wbxx_hal_msp.o
+│   │   │   │       │   ├── stm32wbxx_hal_msp.su
+│   │   │   │       │   ├── stm32wbxx_it.cyclo
+│   │   │   │       │   ├── stm32wbxx_it.d
+│   │   │   │       │   ├── stm32wbxx_it.o
+│   │   │   │       │   ├── stm32wbxx_it.su
+│   │   │   │       │   ├── subdir.mk
+│   │   │   │       │   ├── syscalls.cyclo
+│   │   │   │       │   ├── syscalls.d
+│   │   │   │       │   ├── syscalls.o
+│   │   │   │       │   ├── syscalls.su
+│   │   │   │       │   ├── sysmem.cyclo
+│   │   │   │       │   ├── sysmem.d
+│   │   │   │       │   ├── sysmem.o
+│   │   │   │       │   └── sysmem.su
+│   │   │   │       ├── STM32_WPAN
+│   │   │   │       │   ├── App
+│   │   │   │       │   │   ├── app_ble.cyclo
+│   │   │   │       │   │   ├── app_ble.d
+│   │   │   │       │   │   ├── app_ble.o
+│   │   │   │       │   │   ├── app_ble.su
+│   │   │   │       │   │   ├── p2p_client_app.cyclo
+│   │   │   │       │   │   ├── p2p_client_app.d
+│   │   │   │       │   │   ├── p2p_client_app.o
+│   │   │   │       │   │   ├── p2p_client_app.su
+│   │   │   │       │   │   └── subdir.mk
+│   │   │   │       │   └── Target
+│   │   │   │       │       ├── hw_ipcc.cyclo
+│   │   │   │       │       ├── hw_ipcc.d
+│   │   │   │       │       ├── hw_ipcc.o
+│   │   │   │       │       ├── hw_ipcc.su
+│   │   │   │       │       └── subdir.mk
+│   │   │   │       └── Startup
+│   │   │   │           ├── startup_stm32wb55rgvx.d
+│   │   │   │           ├── startup_stm32wb55rgvx.o
+│   │   │   │           └── subdir.mk
+│   │   │   ├── BLE_p2pClient.elf
+│   │   │   ├── BLE_p2pClient.hex
+│   │   │   ├── BLE_p2pClient.list
+│   │   │   ├── BLE_p2pClient.map
+│   │   │   ├── Drivers
+│   │   │   │   ├── BSP
+│   │   │   │   │   └── P-NUCLEO-WB55.Nucleo
+│   │   │   │   │       ├── stm32wbxx_nucleo.cyclo
+│   │   │   │   │       ├── stm32wbxx_nucleo.d
+│   │   │   │   │       ├── stm32wbxx_nucleo.o
+│   │   │   │   │       ├── stm32wbxx_nucleo.su
+│   │   │   │   │       └── subdir.mk
+│   │   │   │   ├── CMSIS
+│   │   │   │   │   ├── subdir.mk
+│   │   │   │   │   ├── system_stm32wbxx.cyclo
+│   │   │   │   │   ├── system_stm32wbxx.d
+│   │   │   │   │   ├── system_stm32wbxx.o
+│   │   │   │   │   └── system_stm32wbxx.su
+│   │   │   │   └── STM32WBxx_HAL_Driver
+│   │   │   │       ├── stm32wbxx_hal.cyclo
+│   │   │   │       ├── stm32wbxx_hal.d
+│   │   │   │       ├── stm32wbxx_hal.o
+│   │   │   │       ├── stm32wbxx_hal.su
+│   │   │   │       ├── stm32wbxx_hal_cortex.cyclo
+│   │   │   │       ├── stm32wbxx_hal_cortex.d
+│   │   │   │       ├── stm32wbxx_hal_cortex.o
+│   │   │   │       ├── stm32wbxx_hal_cortex.su
+│   │   │   │       ├── stm32wbxx_hal_dma.cyclo
+│   │   │   │       ├── stm32wbxx_hal_dma.d
+│   │   │   │       ├── stm32wbxx_hal_dma.o
+│   │   │   │       ├── stm32wbxx_hal_dma.su
+│   │   │   │       ├── stm32wbxx_hal_dma_ex.cyclo
+│   │   │   │       ├── stm32wbxx_hal_dma_ex.d
+│   │   │   │       ├── stm32wbxx_hal_dma_ex.o
+│   │   │   │       ├── stm32wbxx_hal_dma_ex.su
+│   │   │   │       ├── stm32wbxx_hal_exti.cyclo
+│   │   │   │       ├── stm32wbxx_hal_exti.d
+│   │   │   │       ├── stm32wbxx_hal_exti.o
+│   │   │   │       ├── stm32wbxx_hal_exti.su
+│   │   │   │       ├── stm32wbxx_hal_flash.cyclo
+│   │   │   │       ├── stm32wbxx_hal_flash.d
+│   │   │   │       ├── stm32wbxx_hal_flash.o
+│   │   │   │       ├── stm32wbxx_hal_flash.su
+│   │   │   │       ├── stm32wbxx_hal_flash_ex.cyclo
+│   │   │   │       ├── stm32wbxx_hal_flash_ex.d
+│   │   │   │       ├── stm32wbxx_hal_flash_ex.o
+│   │   │   │       ├── stm32wbxx_hal_flash_ex.su
+│   │   │   │       ├── stm32wbxx_hal_gpio.cyclo
+│   │   │   │       ├── stm32wbxx_hal_gpio.d
+│   │   │   │       ├── stm32wbxx_hal_gpio.o
+│   │   │   │       ├── stm32wbxx_hal_gpio.su
+│   │   │   │       ├── stm32wbxx_hal_hsem.cyclo
+│   │   │   │       ├── stm32wbxx_hal_hsem.d
+│   │   │   │       ├── stm32wbxx_hal_hsem.o
+│   │   │   │       ├── stm32wbxx_hal_hsem.su
+│   │   │   │       ├── stm32wbxx_hal_ipcc.cyclo
+│   │   │   │       ├── stm32wbxx_hal_ipcc.d
+│   │   │   │       ├── stm32wbxx_hal_ipcc.o
+│   │   │   │       ├── stm32wbxx_hal_ipcc.su
+│   │   │   │       ├── stm32wbxx_hal_pwr.cyclo
+│   │   │   │       ├── stm32wbxx_hal_pwr.d
+│   │   │   │       ├── stm32wbxx_hal_pwr.o
+│   │   │   │       ├── stm32wbxx_hal_pwr.su
+│   │   │   │       ├── stm32wbxx_hal_pwr_ex.cyclo
+│   │   │   │       ├── stm32wbxx_hal_pwr_ex.d
+│   │   │   │       ├── stm32wbxx_hal_pwr_ex.o
+│   │   │   │       ├── stm32wbxx_hal_pwr_ex.su
+│   │   │   │       ├── stm32wbxx_hal_rcc.cyclo
+│   │   │   │       ├── stm32wbxx_hal_rcc.d
+│   │   │   │       ├── stm32wbxx_hal_rcc.o
+│   │   │   │       ├── stm32wbxx_hal_rcc.su
+│   │   │   │       ├── stm32wbxx_hal_rcc_ex.cyclo
+│   │   │   │       ├── stm32wbxx_hal_rcc_ex.d
+│   │   │   │       ├── stm32wbxx_hal_rcc_ex.o
+│   │   │   │       ├── stm32wbxx_hal_rcc_ex.su
+│   │   │   │       ├── stm32wbxx_hal_rtc.cyclo
+│   │   │   │       ├── stm32wbxx_hal_rtc.d
+│   │   │   │       ├── stm32wbxx_hal_rtc.o
+│   │   │   │       ├── stm32wbxx_hal_rtc.su
+│   │   │   │       ├── stm32wbxx_hal_rtc_ex.cyclo
+│   │   │   │       ├── stm32wbxx_hal_rtc_ex.d
+│   │   │   │       ├── stm32wbxx_hal_rtc_ex.o
+│   │   │   │       ├── stm32wbxx_hal_rtc_ex.su
+│   │   │   │       ├── stm32wbxx_hal_tim.cyclo
+│   │   │   │       ├── stm32wbxx_hal_tim.d
+│   │   │   │       ├── stm32wbxx_hal_tim.o
+│   │   │   │       ├── stm32wbxx_hal_tim.su
+│   │   │   │       ├── stm32wbxx_hal_tim_ex.cyclo
+│   │   │   │       ├── stm32wbxx_hal_tim_ex.d
+│   │   │   │       ├── stm32wbxx_hal_tim_ex.o
+│   │   │   │       ├── stm32wbxx_hal_tim_ex.su
+│   │   │   │       ├── stm32wbxx_hal_uart.cyclo
+│   │   │   │       ├── stm32wbxx_hal_uart.d
+│   │   │   │       ├── stm32wbxx_hal_uart.o
+│   │   │   │       ├── stm32wbxx_hal_uart.su
+│   │   │   │       ├── stm32wbxx_hal_uart_ex.cyclo
+│   │   │   │       ├── stm32wbxx_hal_uart_ex.d
+│   │   │   │       ├── stm32wbxx_hal_uart_ex.o
+│   │   │   │       ├── stm32wbxx_hal_uart_ex.su
+│   │   │   │       └── subdir.mk
+│   │   │   ├── Middlewares
+│   │   │   │   └── STM32_WPAN
+│   │   │   │       ├── ble_gap_aci.cyclo
+│   │   │   │       ├── ble_gap_aci.d
+│   │   │   │       ├── ble_gap_aci.o
+│   │   │   │       ├── ble_gap_aci.su
+│   │   │   │       ├── ble_gatt_aci.cyclo
+│   │   │   │       ├── ble_gatt_aci.d
+│   │   │   │       ├── ble_gatt_aci.o
+│   │   │   │       ├── ble_gatt_aci.su
+│   │   │   │       ├── ble_hal_aci.cyclo
+│   │   │   │       ├── ble_hal_aci.d
+│   │   │   │       ├── ble_hal_aci.o
+│   │   │   │       ├── ble_hal_aci.su
+│   │   │   │       ├── ble_hci_le.cyclo
+│   │   │   │       ├── ble_hci_le.d
+│   │   │   │       ├── ble_hci_le.o
+│   │   │   │       ├── ble_hci_le.su
+│   │   │   │       ├── ble_l2cap_aci.cyclo
+│   │   │   │       ├── ble_l2cap_aci.d
+│   │   │   │       ├── ble_l2cap_aci.o
+│   │   │   │       ├── ble_l2cap_aci.su
+│   │   │   │       ├── dbg_trace.cyclo
+│   │   │   │       ├── dbg_trace.d
+│   │   │   │       ├── dbg_trace.o
+│   │   │   │       ├── dbg_trace.su
+│   │   │   │       ├── hci_tl.cyclo
+│   │   │   │       ├── hci_tl.d
+│   │   │   │       ├── hci_tl.o
+│   │   │   │       ├── hci_tl.su
+│   │   │   │       ├── hci_tl_if.cyclo
+│   │   │   │       ├── hci_tl_if.d
+│   │   │   │       ├── hci_tl_if.o
+│   │   │   │       ├── hci_tl_if.su
+│   │   │   │       ├── osal.cyclo
+│   │   │   │       ├── osal.d
+│   │   │   │       ├── osal.o
+│   │   │   │       ├── osal.su
+│   │   │   │       ├── otp.cyclo
+│   │   │   │       ├── otp.d
+│   │   │   │       ├── otp.o
+│   │   │   │       ├── otp.su
+│   │   │   │       ├── shci.cyclo
+│   │   │   │       ├── shci.d
+│   │   │   │       ├── shci.o
+│   │   │   │       ├── shci.su
+│   │   │   │       ├── shci_tl.cyclo
+│   │   │   │       ├── shci_tl.d
+│   │   │   │       ├── shci_tl.o
+│   │   │   │       ├── shci_tl.su
+│   │   │   │       ├── shci_tl_if.cyclo
+│   │   │   │       ├── shci_tl_if.d
+│   │   │   │       ├── shci_tl_if.o
+│   │   │   │       ├── shci_tl_if.su
+│   │   │   │       ├── stm_list.cyclo
+│   │   │   │       ├── stm_list.d
+│   │   │   │       ├── stm_list.o
+│   │   │   │       ├── stm_list.su
+│   │   │   │       ├── stm_queue.cyclo
+│   │   │   │       ├── stm_queue.d
+│   │   │   │       ├── stm_queue.o
+│   │   │   │       ├── stm_queue.su
+│   │   │   │       ├── subdir.mk
+│   │   │   │       ├── svc_ctl.cyclo
+│   │   │   │       ├── svc_ctl.d
+│   │   │   │       ├── svc_ctl.o
+│   │   │   │       ├── svc_ctl.su
+│   │   │   │       ├── tl_mbox.cyclo
+│   │   │   │       ├── tl_mbox.d
+│   │   │   │       ├── tl_mbox.o
+│   │   │   │       └── tl_mbox.su
+│   │   │   ├── Utilities
+│   │   │   │   ├── stm32_lpm.cyclo
+│   │   │   │   ├── stm32_lpm.d
+│   │   │   │   ├── stm32_lpm.o
+│   │   │   │   ├── stm32_lpm.su
+│   │   │   │   ├── stm32_seq.cyclo
+│   │   │   │   ├── stm32_seq.d
+│   │   │   │   ├── stm32_seq.o
+│   │   │   │   ├── stm32_seq.su
+│   │   │   │   └── subdir.mk
+│   │   │   ├── makefile
+│   │   │   ├── objects.list
+│   │   │   ├── objects.mk
+│   │   │   └── sources.mk
+│   │   ├── Doc
+│   │   ├── Drivers
+│   │   │   ├── BSP
+│   │   │   │   └── P-NUCLEO-WB55.Nucleo
+│   │   │   ├── CMSIS
+│   │   │   └── STM32WBxx_HAL_Driver
+│   │   ├── Middlewares
+│   │   │   └── STM32_WPAN
+│   │   ├── STM32WB55RGVX_FLASH.ld
+│   │   └── Utilities
+│   ├── STM32_WPAN
+│   │   ├── App
+│   │   │   ├── app_ble.c
+│   │   │   ├── app_ble.h
+│   │   │   ├── ble_conf.h
+│   │   │   ├── ble_dbg_conf.h
+│   │   │   ├── p2p_client_app.c
+│   │   │   ├── p2p_client_app.h
+│   │   │   └── tl_dbg_conf.h
+│   │   └── Target
+│   │       └── hw_ipcc.c
+│   └── readme.txt
+├── BLE_p2pMaster
+│   ├── BLE_p2pMaster Debug.launch
+│   ├── BLE_p2pMaster.ioc
+│   ├── Core
+│   │   ├── Inc
+│   │   │   ├── app_common.h
+│   │   │   ├── app_conf.h
+│   │   │   ├── app_debug.h
+│   │   │   ├── app_entry.h
+│   │   │   ├── hw_conf.h
+│   │   │   ├── hw_if.h
+│   │   │   ├── main.h
+│   │   │   ├── stm32_lpm_if.h
+│   │   │   ├── stm32wbxx_hal_conf.h
+│   │   │   ├── stm32wbxx_it.h
+│   │   │   ├── training_set.h
+│   │   │   └── utilities_conf.h
+│   │   ├── Src
+│   │   │   ├── app_debug.c
+│   │   │   ├── app_entry.c
+│   │   │   ├── hw_timerserver.c
+│   │   │   ├── hw_uart.c
+│   │   │   ├── main.c
+│   │   │   ├── stm32_lpm_if.c
+│   │   │   ├── stm32wbxx_hal_msp.c
+│   │   │   ├── stm32wbxx_it.c
+│   │   │   ├── syscalls.c
+│   │   │   ├── sysmem.c
+│   │   │   └── system_stm32wbxx.c
+│   │   └── Startup
+│   │       └── startup_stm32wb55rgvx.s
+│   ├── Debug
+│   │   ├── BLE_p2pMaster.elf
+│   │   ├── BLE_p2pMaster.list
+│   │   ├── BLE_p2pMaster.map
+│   │   ├── Core
+│   │   │   ├── Src
+│   │   │   │   ├── app_debug.cyclo
+│   │   │   │   ├── app_debug.d
+│   │   │   │   ├── app_debug.o
+│   │   │   │   ├── app_debug.su
+│   │   │   │   ├── app_entry.cyclo
+│   │   │   │   ├── app_entry.d
+│   │   │   │   ├── app_entry.o
+│   │   │   │   ├── app_entry.su
+│   │   │   │   ├── hw_timerserver.cyclo
+│   │   │   │   ├── hw_timerserver.d
+│   │   │   │   ├── hw_timerserver.o
+│   │   │   │   ├── hw_timerserver.su
+│   │   │   │   ├── hw_uart.cyclo
+│   │   │   │   ├── hw_uart.d
+│   │   │   │   ├── hw_uart.o
+│   │   │   │   ├── hw_uart.su
+│   │   │   │   ├── main.cyclo
+│   │   │   │   ├── main.d
+│   │   │   │   ├── main.o
+│   │   │   │   ├── main.su
+│   │   │   │   ├── stm32_lpm_if.cyclo
+│   │   │   │   ├── stm32_lpm_if.d
+│   │   │   │   ├── stm32_lpm_if.o
+│   │   │   │   ├── stm32_lpm_if.su
+│   │   │   │   ├── stm32wbxx_hal_msp.cyclo
+│   │   │   │   ├── stm32wbxx_hal_msp.d
+│   │   │   │   ├── stm32wbxx_hal_msp.o
+│   │   │   │   ├── stm32wbxx_hal_msp.su
+│   │   │   │   ├── stm32wbxx_it.cyclo
+│   │   │   │   ├── stm32wbxx_it.d
+│   │   │   │   ├── stm32wbxx_it.o
+│   │   │   │   ├── stm32wbxx_it.su
+│   │   │   │   ├── subdir.mk
+│   │   │   │   ├── syscalls.cyclo
+│   │   │   │   ├── syscalls.d
+│   │   │   │   ├── syscalls.o
+│   │   │   │   ├── syscalls.su
+│   │   │   │   ├── sysmem.cyclo
+│   │   │   │   ├── sysmem.d
+│   │   │   │   ├── sysmem.o
+│   │   │   │   ├── sysmem.su
+│   │   │   │   ├── system_stm32wbxx.cyclo
+│   │   │   │   ├── system_stm32wbxx.d
+│   │   │   │   ├── system_stm32wbxx.o
+│   │   │   │   └── system_stm32wbxx.su
+│   │   │   └── Startup
+│   │   │       ├── startup_stm32wb55rgvx.d
+│   │   │       ├── startup_stm32wb55rgvx.o
+│   │   │       └── subdir.mk
+│   │   ├── Drivers
+│   │   │   └── STM32WBxx_HAL_Driver
+│   │   │       └── Src
+│   │   │           ├── stm32wbxx_hal.cyclo
+│   │   │           ├── stm32wbxx_hal.d
+│   │   │           ├── stm32wbxx_hal.o
+│   │   │           ├── stm32wbxx_hal.su
+│   │   │           ├── stm32wbxx_hal_cortex.cyclo
+│   │   │           ├── stm32wbxx_hal_cortex.d
+│   │   │           ├── stm32wbxx_hal_cortex.o
+│   │   │           ├── stm32wbxx_hal_cortex.su
+│   │   │           ├── stm32wbxx_hal_dma.cyclo
+│   │   │           ├── stm32wbxx_hal_dma.d
+│   │   │           ├── stm32wbxx_hal_dma.o
+│   │   │           ├── stm32wbxx_hal_dma.su
+│   │   │           ├── stm32wbxx_hal_dma_ex.cyclo
+│   │   │           ├── stm32wbxx_hal_dma_ex.d
+│   │   │           ├── stm32wbxx_hal_dma_ex.o
+│   │   │           ├── stm32wbxx_hal_dma_ex.su
+│   │   │           ├── stm32wbxx_hal_exti.cyclo
+│   │   │           ├── stm32wbxx_hal_exti.d
+│   │   │           ├── stm32wbxx_hal_exti.o
+│   │   │           ├── stm32wbxx_hal_exti.su
+│   │   │           ├── stm32wbxx_hal_flash.cyclo
+│   │   │           ├── stm32wbxx_hal_flash.d
+│   │   │           ├── stm32wbxx_hal_flash.o
+│   │   │           ├── stm32wbxx_hal_flash.su
+│   │   │           ├── stm32wbxx_hal_flash_ex.cyclo
+│   │   │           ├── stm32wbxx_hal_flash_ex.d
+│   │   │           ├── stm32wbxx_hal_flash_ex.o
+│   │   │           ├── stm32wbxx_hal_flash_ex.su
+│   │   │           ├── stm32wbxx_hal_gpio.cyclo
+│   │   │           ├── stm32wbxx_hal_gpio.d
+│   │   │           ├── stm32wbxx_hal_gpio.o
+│   │   │           ├── stm32wbxx_hal_gpio.su
+│   │   │           ├── stm32wbxx_hal_hsem.cyclo
+│   │   │           ├── stm32wbxx_hal_hsem.d
+│   │   │           ├── stm32wbxx_hal_hsem.o
+│   │   │           ├── stm32wbxx_hal_hsem.su
+│   │   │           ├── stm32wbxx_hal_ipcc.cyclo
+│   │   │           ├── stm32wbxx_hal_ipcc.d
+│   │   │           ├── stm32wbxx_hal_ipcc.o
+│   │   │           ├── stm32wbxx_hal_ipcc.su
+│   │   │           ├── stm32wbxx_hal_pwr.cyclo
+│   │   │           ├── stm32wbxx_hal_pwr.d
+│   │   │           ├── stm32wbxx_hal_pwr.o
+│   │   │           ├── stm32wbxx_hal_pwr.su
+│   │   │           ├── stm32wbxx_hal_pwr_ex.cyclo
+│   │   │           ├── stm32wbxx_hal_pwr_ex.d
+│   │   │           ├── stm32wbxx_hal_pwr_ex.o
+│   │   │           ├── stm32wbxx_hal_pwr_ex.su
+│   │   │           ├── stm32wbxx_hal_rcc.cyclo
+│   │   │           ├── stm32wbxx_hal_rcc.d
+│   │   │           ├── stm32wbxx_hal_rcc.o
+│   │   │           ├── stm32wbxx_hal_rcc.su
+│   │   │           ├── stm32wbxx_hal_rcc_ex.cyclo
+│   │   │           ├── stm32wbxx_hal_rcc_ex.d
+│   │   │           ├── stm32wbxx_hal_rcc_ex.o
+│   │   │           ├── stm32wbxx_hal_rcc_ex.su
+│   │   │           ├── stm32wbxx_hal_rtc.cyclo
+│   │   │           ├── stm32wbxx_hal_rtc.d
+│   │   │           ├── stm32wbxx_hal_rtc.o
+│   │   │           ├── stm32wbxx_hal_rtc.su
+│   │   │           ├── stm32wbxx_hal_rtc_ex.cyclo
+│   │   │           ├── stm32wbxx_hal_rtc_ex.d
+│   │   │           ├── stm32wbxx_hal_rtc_ex.o
+│   │   │           ├── stm32wbxx_hal_rtc_ex.su
+│   │   │           ├── stm32wbxx_hal_uart.cyclo
+│   │   │           ├── stm32wbxx_hal_uart.d
+│   │   │           ├── stm32wbxx_hal_uart.o
+│   │   │           ├── stm32wbxx_hal_uart.su
+│   │   │           ├── stm32wbxx_hal_uart_ex.cyclo
+│   │   │           ├── stm32wbxx_hal_uart_ex.d
+│   │   │           ├── stm32wbxx_hal_uart_ex.o
+│   │   │           ├── stm32wbxx_hal_uart_ex.su
+│   │   │           ├── stm32wbxx_ll_rcc.cyclo
+│   │   │           ├── stm32wbxx_ll_rcc.d
+│   │   │           ├── stm32wbxx_ll_rcc.o
+│   │   │           ├── stm32wbxx_ll_rcc.su
+│   │   │           └── subdir.mk
+│   │   ├── Middlewares
+│   │   │   └── ST
+│   │   │       └── STM32_WPAN
+│   │   │           ├── ble
+│   │   │           │   ├── core
+│   │   │           │   │   ├── auto
+│   │   │           │   │   │   ├── ble_gap_aci.cyclo
+│   │   │           │   │   │   ├── ble_gap_aci.d
+│   │   │           │   │   │   ├── ble_gap_aci.o
+│   │   │           │   │   │   ├── ble_gap_aci.su
+│   │   │           │   │   │   ├── ble_gatt_aci.cyclo
+│   │   │           │   │   │   ├── ble_gatt_aci.d
+│   │   │           │   │   │   ├── ble_gatt_aci.o
+│   │   │           │   │   │   ├── ble_gatt_aci.su
+│   │   │           │   │   │   ├── ble_hal_aci.cyclo
+│   │   │           │   │   │   ├── ble_hal_aci.d
+│   │   │           │   │   │   ├── ble_hal_aci.o
+│   │   │           │   │   │   ├── ble_hal_aci.su
+│   │   │           │   │   │   ├── ble_hci_le.cyclo
+│   │   │           │   │   │   ├── ble_hci_le.d
+│   │   │           │   │   │   ├── ble_hci_le.o
+│   │   │           │   │   │   ├── ble_hci_le.su
+│   │   │           │   │   │   ├── ble_l2cap_aci.cyclo
+│   │   │           │   │   │   ├── ble_l2cap_aci.d
+│   │   │           │   │   │   ├── ble_l2cap_aci.o
+│   │   │           │   │   │   ├── ble_l2cap_aci.su
+│   │   │           │   │   │   └── subdir.mk
+│   │   │           │   │   └── template
+│   │   │           │   │       ├── osal.cyclo
+│   │   │           │   │       ├── osal.d
+│   │   │           │   │       ├── osal.o
+│   │   │           │   │       ├── osal.su
+│   │   │           │   │       └── subdir.mk
+│   │   │           │   └── svc
+│   │   │           │       └── Src
+│   │   │           │           ├── subdir.mk
+│   │   │           │           ├── svc_ctl.cyclo
+│   │   │           │           ├── svc_ctl.d
+│   │   │           │           ├── svc_ctl.o
+│   │   │           │           └── svc_ctl.su
+│   │   │           ├── interface
+│   │   │           │   └── patterns
+│   │   │           │       └── ble_thread
+│   │   │           │           ├── shci
+│   │   │           │           │   ├── shci.cyclo
+│   │   │           │           │   ├── shci.d
+│   │   │           │           │   ├── shci.o
+│   │   │           │           │   ├── shci.su
+│   │   │           │           │   └── subdir.mk
+│   │   │           │           └── tl
+│   │   │           │               ├── hci_tl.cyclo
+│   │   │           │               ├── hci_tl.d
+│   │   │           │               ├── hci_tl.o
+│   │   │           │               ├── hci_tl.su
+│   │   │           │               ├── hci_tl_if.cyclo
+│   │   │           │               ├── hci_tl_if.d
+│   │   │           │               ├── hci_tl_if.o
+│   │   │           │               ├── hci_tl_if.su
+│   │   │           │               ├── shci_tl.cyclo
+│   │   │           │               ├── shci_tl.d
+│   │   │           │               ├── shci_tl.o
+│   │   │           │               ├── shci_tl.su
+│   │   │           │               ├── shci_tl_if.cyclo
+│   │   │           │               ├── shci_tl_if.d
+│   │   │           │               ├── shci_tl_if.o
+│   │   │           │               ├── shci_tl_if.su
+│   │   │           │               ├── subdir.mk
+│   │   │           │               ├── tl_mbox.cyclo
+│   │   │           │               ├── tl_mbox.d
+│   │   │           │               ├── tl_mbox.o
+│   │   │           │               └── tl_mbox.su
+│   │   │           └── utilities
+│   │   │               ├── dbg_trace.cyclo
+│   │   │               ├── dbg_trace.d
+│   │   │               ├── dbg_trace.o
+│   │   │               ├── dbg_trace.su
+│   │   │               ├── otp.cyclo
+│   │   │               ├── otp.d
+│   │   │               ├── otp.o
+│   │   │               ├── otp.su
+│   │   │               ├── stm_list.cyclo
+│   │   │               ├── stm_list.d
+│   │   │               ├── stm_list.o
+│   │   │               ├── stm_list.su
+│   │   │               ├── stm_queue.cyclo
+│   │   │               ├── stm_queue.d
+│   │   │               ├── stm_queue.o
+│   │   │               ├── stm_queue.su
+│   │   │               └── subdir.mk
+│   │   ├── STM32_WPAN
+│   │   │   ├── App
+│   │   │   │   ├── app_ble.cyclo
+│   │   │   │   ├── app_ble.d
+│   │   │   │   ├── app_ble.o
+│   │   │   │   ├── app_ble.su
+│   │   │   │   ├── p2p_client_app.cyclo
+│   │   │   │   ├── p2p_client_app.d
+│   │   │   │   ├── p2p_client_app.o
+│   │   │   │   ├── p2p_client_app.su
+│   │   │   │   └── subdir.mk
+│   │   │   └── Target
+│   │   │       ├── hw_ipcc.cyclo
+│   │   │       ├── hw_ipcc.d
+│   │   │       ├── hw_ipcc.o
+│   │   │       ├── hw_ipcc.su
+│   │   │       └── subdir.mk
+│   │   ├── Utilities
+│   │   │   ├── lpm
+│   │   │   │   └── tiny_lpm
+│   │   │   │       ├── stm32_lpm.cyclo
+│   │   │   │       ├── stm32_lpm.d
+│   │   │   │       ├── stm32_lpm.o
+│   │   │   │       ├── stm32_lpm.su
+│   │   │   │       └── subdir.mk
+│   │   │   └── sequencer
+│   │   │       ├── stm32_seq.cyclo
+│   │   │       ├── stm32_seq.d
+│   │   │       ├── stm32_seq.o
+│   │   │       ├── stm32_seq.su
+│   │   │       └── subdir.mk
+│   │   ├── makefile
+│   │   ├── objects.list
+│   │   ├── objects.mk
+│   │   └── sources.mk
+│   ├── Drivers
+│   │   ├── CMSIS
+│   │   │   ├── Device
+│   │   │   │   └── ST
+│   │   │   │       └── STM32WBxx
+│   │   │   │           ├── Include
+│   │   │   │           │   ├── stm32wb55xx.h
+│   │   │   │           │   ├── stm32wbxx.h
+│   │   │   │           │   └── system_stm32wbxx.h
+│   │   │   │           ├── LICENSE.txt
+│   │   │   │           └── Source
+│   │   │   │               └── Templates
+│   │   │   ├── Include
+│   │   │   │   ├── cmsis_armcc.h
+│   │   │   │   ├── cmsis_armclang.h
+│   │   │   │   ├── cmsis_armclang_ltm.h
+│   │   │   │   ├── cmsis_compiler.h
+│   │   │   │   ├── cmsis_gcc.h
+│   │   │   │   ├── cmsis_iccarm.h
+│   │   │   │   ├── cmsis_version.h
+│   │   │   │   ├── core_armv81mml.h
+│   │   │   │   ├── core_armv8mbl.h
+│   │   │   │   ├── core_armv8mml.h
+│   │   │   │   ├── core_cm0.h
+│   │   │   │   ├── core_cm0plus.h
+│   │   │   │   ├── core_cm1.h
+│   │   │   │   ├── core_cm23.h
+│   │   │   │   ├── core_cm3.h
+│   │   │   │   ├── core_cm33.h
+│   │   │   │   ├── core_cm35p.h
+│   │   │   │   ├── core_cm4.h
+│   │   │   │   ├── core_cm7.h
+│   │   │   │   ├── core_sc000.h
+│   │   │   │   ├── core_sc300.h
+│   │   │   │   ├── mpu_armv7.h
+│   │   │   │   ├── mpu_armv8.h
+│   │   │   │   └── tz_context.h
+│   │   │   └── LICENSE.txt
+│   │   └── STM32WBxx_HAL_Driver
+│   │       ├── Inc
+│   │       │   ├── Legacy
+│   │       │   │   └── stm32_hal_legacy.h
+│   │       │   ├── stm32wbxx_hal.h
+│   │       │   ├── stm32wbxx_hal_cortex.h
+│   │       │   ├── stm32wbxx_hal_def.h
+│   │       │   ├── stm32wbxx_hal_dma.h
+│   │       │   ├── stm32wbxx_hal_dma_ex.h
+│   │       │   ├── stm32wbxx_hal_exti.h
+│   │       │   ├── stm32wbxx_hal_flash.h
+│   │       │   ├── stm32wbxx_hal_flash_ex.h
+│   │       │   ├── stm32wbxx_hal_gpio.h
+│   │       │   ├── stm32wbxx_hal_gpio_ex.h
+│   │       │   ├── stm32wbxx_hal_hsem.h
+│   │       │   ├── stm32wbxx_hal_ipcc.h
+│   │       │   ├── stm32wbxx_hal_pwr.h
+│   │       │   ├── stm32wbxx_hal_pwr_ex.h
+│   │       │   ├── stm32wbxx_hal_rcc.h
+│   │       │   ├── stm32wbxx_hal_rcc_ex.h
+│   │       │   ├── stm32wbxx_hal_rtc.h
+│   │       │   ├── stm32wbxx_hal_rtc_ex.h
+│   │       │   ├── stm32wbxx_hal_uart.h
+│   │       │   ├── stm32wbxx_hal_uart_ex.h
+│   │       │   ├── stm32wbxx_ll_bus.h
+│   │       │   ├── stm32wbxx_ll_cortex.h
+│   │       │   ├── stm32wbxx_ll_crs.h
+│   │       │   ├── stm32wbxx_ll_dma.h
+│   │       │   ├── stm32wbxx_ll_dmamux.h
+│   │       │   ├── stm32wbxx_ll_exti.h
+│   │       │   ├── stm32wbxx_ll_gpio.h
+│   │       │   ├── stm32wbxx_ll_hsem.h
+│   │       │   ├── stm32wbxx_ll_ipcc.h
+│   │       │   ├── stm32wbxx_ll_lpuart.h
+│   │       │   ├── stm32wbxx_ll_pwr.h
+│   │       │   ├── stm32wbxx_ll_rcc.h
+│   │       │   ├── stm32wbxx_ll_rtc.h
+│   │       │   ├── stm32wbxx_ll_system.h
+│   │       │   ├── stm32wbxx_ll_usart.h
+│   │       │   └── stm32wbxx_ll_utils.h
+│   │       ├── LICENSE.txt
+│   │       └── Src
+│   │           ├── stm32wbxx_hal.c
+│   │           ├── stm32wbxx_hal_cortex.c
+│   │           ├── stm32wbxx_hal_dma.c
+│   │           ├── stm32wbxx_hal_dma_ex.c
+│   │           ├── stm32wbxx_hal_exti.c
+│   │           ├── stm32wbxx_hal_flash.c
+│   │           ├── stm32wbxx_hal_flash_ex.c
+│   │           ├── stm32wbxx_hal_gpio.c
+│   │           ├── stm32wbxx_hal_hsem.c
+│   │           ├── stm32wbxx_hal_ipcc.c
+│   │           ├── stm32wbxx_hal_pwr.c
+│   │           ├── stm32wbxx_hal_pwr_ex.c
+│   │           ├── stm32wbxx_hal_rcc.c
+│   │           ├── stm32wbxx_hal_rcc_ex.c
+│   │           ├── stm32wbxx_hal_rtc.c
+│   │           ├── stm32wbxx_hal_rtc_ex.c
+│   │           ├── stm32wbxx_hal_uart.c
+│   │           ├── stm32wbxx_hal_uart_ex.c
+│   │           └── stm32wbxx_ll_rcc.c
+│   ├── Middlewares
+│   │   └── ST
+│   │       └── STM32_WPAN
+│   │           ├── ble
+│   │           │   ├── ble.h
+│   │           │   ├── ble_common.h
+│   │           │   ├── core
+│   │           │   │   ├── auto
+│   │           │   │   │   ├── ble_events.h
+│   │           │   │   │   ├── ble_gap_aci.c
+│   │           │   │   │   ├── ble_gap_aci.h
+│   │           │   │   │   ├── ble_gatt_aci.c
+│   │           │   │   │   ├── ble_gatt_aci.h
+│   │           │   │   │   ├── ble_hal_aci.c
+│   │           │   │   │   ├── ble_hal_aci.h
+│   │           │   │   │   ├── ble_hci_le.c
+│   │           │   │   │   ├── ble_hci_le.h
+│   │           │   │   │   ├── ble_l2cap_aci.c
+│   │           │   │   │   ├── ble_l2cap_aci.h
+│   │           │   │   │   ├── ble_types.h
+│   │           │   │   │   └── ble_vs_codes.h
+│   │           │   │   ├── ble_bufsize.h
+│   │           │   │   ├── ble_core.h
+│   │           │   │   ├── ble_defs.h
+│   │           │   │   ├── ble_legacy.h
+│   │           │   │   ├── ble_std.h
+│   │           │   │   └── template
+│   │           │   │       ├── ble_const.h
+│   │           │   │       ├── compiler.h
+│   │           │   │       ├── osal.c
+│   │           │   │       └── osal.h
+│   │           │   └── svc
+│   │           │       ├── Inc
+│   │           │       │   ├── bas.h
+│   │           │       │   ├── bls.h
+│   │           │       │   ├── crs_stm.h
+│   │           │       │   ├── dis.h
+│   │           │       │   ├── eds_stm.h
+│   │           │       │   ├── hids.h
+│   │           │       │   ├── hrs.h
+│   │           │       │   ├── hts.h
+│   │           │       │   ├── ias.h
+│   │           │       │   ├── lls.h
+│   │           │       │   ├── mesh.h
+│   │           │       │   ├── motenv_stm.h
+│   │           │       │   ├── otas_stm.h
+│   │           │       │   ├── p2p_stm.h
+│   │           │       │   ├── svc_ctl.h
+│   │           │       │   ├── template_stm.h
+│   │           │       │   ├── tps.h
+│   │           │       │   ├── uuid.h
+│   │           │       │   └── zdd_stm.h
+│   │           │       └── Src
+│   │           │           ├── common_blesvc.h
+│   │           │           └── svc_ctl.c
+│   │           ├── interface
+│   │           │   └── patterns
+│   │           │       └── ble_thread
+│   │           │           ├── hw.h
+│   │           │           ├── shci
+│   │           │           │   ├── shci.c
+│   │           │           │   └── shci.h
+│   │           │           └── tl
+│   │           │               ├── hci_tl.c
+│   │           │               ├── hci_tl.h
+│   │           │               ├── hci_tl_if.c
+│   │           │               ├── mbox_def.h
+│   │           │               ├── shci_tl.c
+│   │           │               ├── shci_tl.h
+│   │           │               ├── shci_tl_if.c
+│   │           │               ├── tl.h
+│   │           │               └── tl_mbox.c
+│   │           ├── stm32_wpan_common.h
+│   │           └── utilities
+│   │               ├── dbg_trace.c
+│   │               ├── dbg_trace.h
+│   │               ├── otp.c
+│   │               ├── otp.h
+│   │               ├── stm_list.c
+│   │               ├── stm_list.h
+│   │               ├── stm_queue.c
+│   │               ├── stm_queue.h
+│   │               └── utilities_common.h
+│   ├── STM32WB55RGVX_FLASH.ld
+│   ├── STM32WB55RGVX_RAM.ld
+│   ├── STM32_WPAN
+│   │   ├── App
+│   │   │   ├── app_ble.c
+│   │   │   ├── app_ble.h
+│   │   │   ├── ble_conf.h
+│   │   │   ├── ble_dbg_conf.h
+│   │   │   ├── p2p_client_app.c
+│   │   │   ├── p2p_client_app.h
+│   │   │   └── tl_dbg_conf.h
+│   │   └── Target
+│   │       └── hw_ipcc.c
+│   └── Utilities
+│       ├── lpm
+│       │   └── tiny_lpm
+│       │       ├── stm32_lpm.c
+│       │       └── stm32_lpm.h
+│       └── sequencer
+│           ├── stm32_seq.c
+│           └── stm32_seq.h
+├── README.md
+├── __pycache__
+│   └── config.cpython-312.pyc
+├── config.py
+├── data
+│   ├── __pycache__
+│   │   ├── data_gen.cpython-312.pyc
+│   │   └── zone_coordinates.cpython-312.pyc
+│   ├── data_gen.py
+│   ├── training_set.h
+│   └── zone_coordinates.py
+├── gui
+│   ├── __pycache__
+│   │   └── main.cpython-312.pyc
+│   ├── main.py
+│   └── mapping.py
+├── mappa_16_zone.png
+├── mappa_16_zone_tkinter.png
+├── requirements.txt
+├── run.sh
+├── setup.sh
+├── src
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   └── __init__.cpython-312.pyc
+│   ├── serial
+│   │   ├── __pycache__
+│   │   │   ├── receiver.cpython-312.pyc
+│   │   │   └── serialRoutine.cpython-312.pyc
+│   │   ├── receiver.py
+│   │   └── serialRoutine.py
+│   └── tracking
+│       ├── __pycache__
+│       │   └── trackingRoutine.cpython-312.pyc
+│       └── trackingRoutine.py
+└── structure.txt
+
+125 directories, 729 files
